@@ -1,0 +1,43 @@
+name: CI Debug
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    name: Debug runner and environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Basic info
+        run: |
+          echo "--- Debug start ---"
+          date
+          echo "User: $(whoami)"
+          echo "Runner: $RUNNER_OS"
+          node -v || true
+          npm -v || true
+          echo "--- env ---"
+          env | sort
+
+      - name: List workspace
+        run: |
+          echo "--- repo files ---"
+          ls -la
+          echo "--- git status ---"
+          git status --porcelain || true
+
+      - name: Create debug artifact
+        run: |
+          mkdir -p debug
+          echo "debug log - $(date)" > debug/info.txt
+
+      - name: Upload debug artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-debug-artifact
+          path: debug
