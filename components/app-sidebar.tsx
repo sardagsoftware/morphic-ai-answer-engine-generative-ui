@@ -49,6 +49,10 @@ export default function AppSidebar() {
         </div>
         <SidebarFooter>
           <div className="text-xs text-muted-foreground">SARDAG @ 2013 - 2025 AiLydian - Ukalai - Aitbondie. Tüm hakları saklıdır.</div>
+          <div className="text-xs text-muted-foreground mt-2 flex items-center gap-2"> 
+            <span className="text-purple-500">❤</span>
+            <span>İsmini vermek istemeyen destekçimize teşekkürler.</span>
+          </div>
         </SidebarFooter>
       </SidebarContent>
       <SidebarRail />

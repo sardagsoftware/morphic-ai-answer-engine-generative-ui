@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://morphic.sh'),
   title,
   description,
+  icons: {
+    icon: '/aitbondie-favicon.svg',
+    apple: '/aitbondie-favicon.png'
+  },
   openGraph: {
     title,
     description
