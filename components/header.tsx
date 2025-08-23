@@ -1,18 +1,17 @@
 'use client'
 
-// import Link from 'next/link' // No longer needed directly here for Sign In button
+// React / external
 import React from 'react'
-
 import { User } from '@supabase/supabase-js'
 
+// Internal aliases
 import { cn } from '@/lib/utils'
-
 import { useSidebar } from '@/components/ui/sidebar'
 
-// import { Button } from './ui/button' // No longer needed directly here for Sign In button
+// Local (sibling) components
+import AnimatedLogo from './animated-logo'
 import GuestMenu from './guest-menu' // Import the new GuestMenu component
 import UserMenu from './user-menu'
-import AnimatedLogo from './animated-logo'
 
 interface HeaderProps {
   user: User | null
