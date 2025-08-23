@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils'
 
 import { useArtifact } from './artifact/artifact-context'
 import { Button } from './ui/button'
-import AnimatedLogo from './animated-logo'
+// Animated logo removed per request
 import { EmptyScreen } from './empty-screen'
 import { ModelSelector } from './model-selector'
 import { SearchModeToggle } from './search-mode-toggle'
@@ -119,7 +119,6 @@ export function ChatPanel({
     >
       {messages.length === 0 && (
         <div className="mb-10 flex flex-col items-center gap-4">
-          <AnimatedLogo className="size-12 text-muted-foreground" />
           <p className="text-center text-3xl font-semibold">
             Size Nasıl Yardımcı Olabilirim
           </p>
@@ -129,10 +128,7 @@ export function ChatPanel({
         onSubmit={handleSubmit}
         className={cn('max-w-3xl w-full mx-auto relative')}
       >
-        {/* Logo positioned above the search form */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 pointer-events-none">
-          <AnimatedLogo className="h-10 w-auto text-black dark:text-white" />
-        </div>
+  {/* Logo removed */}
         {/* Scroll to bottom button - only shown when showScrollToBottomButton is true */}
         {showScrollToBottomButton && messages.length > 0 && (
           <Button

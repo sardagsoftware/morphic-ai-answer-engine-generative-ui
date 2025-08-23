@@ -1,7 +1,5 @@
 "use client"
 
-/* eslint-disable simple-import-sort/imports */
-
 // External
 import { User } from '@supabase/supabase-js'
 import React from 'react'
@@ -11,7 +9,6 @@ import { useSidebar } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
 
 // Local (sibling)
-import AnimatedLogo from './animated-logo'
 import Link from 'next/link'
 import GuestMenu from './guest-menu'
 import UserMenu from './user-menu'
@@ -30,44 +27,10 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
         'w-full'
       )}
     >
-  <div className="flex items-center gap-3 text-black dark:text-white">
-        <Link href="/" className="inline-flex items-center">
-          <AnimatedLogo className="h-8 w-auto text-current" />
-        </Link>
-      </div>
+      <div />
 
       <nav className="flex items-center gap-4">
-        {/* Desktop / tablet: show full labels; mobile: show icons only */}
-        <Link href="/login" className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
-          Giriş Yap
-        </Link>
-
-        {/* Theme toggle placeholder - keep existing theme component if present */}
-        <div className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
-          Tema
-        </div>
-
-        <Link href="/links" className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
-          Bağlantılar
-        </Link>
-
-        {/* Mobile: small icon buttons */}
-        <div className="flex sm:hidden items-center gap-2">
-          <Link href="/login" aria-label="Giriş" className="p-2 rounded hover:bg-muted/60">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-              <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M10 17l5-5-5-5v10z" />
-            </svg>
-          </Link>
-          <button aria-label="Tema" className="p-2 rounded hover:bg-muted/60">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M12 3v1M12 20v1M4.22 4.22l.7.7M18.36 18.36l.7.7M1 12h1M22 12h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7" />
-              <circle cx="12" cy="12" r="3" strokeWidth="1.5" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Right-most: user menu / guest menu */}
+        {/* Only show user menu / guest menu per request */}
         <div className="ml-2">
           {user ? <UserMenu user={user} /> : <GuestMenu />}
         </div>
