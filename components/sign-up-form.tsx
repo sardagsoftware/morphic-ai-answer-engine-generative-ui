@@ -68,21 +68,21 @@ export function SignUpForm({
         <CardHeader className="text-center">
           <CardTitle className="text-2xl flex flex-col items-center justify-center gap-4">
             <IconLogo className="size-12" />
-            Create an account
+            Hesap Oluşturun
           </CardTitle>
           <CardDescription>
-            Enter your details below to get started
+            Başlamak için bilgilerinizi girin
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSignUp}>
             <div className="flex flex-col gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">E-posta</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="you@ornek.com"
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -90,7 +90,7 @@ export function SignUpForm({
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">Parola</Label>
                 </div>
                 <Input
                   id="password"
@@ -103,7 +103,7 @@ export function SignUpForm({
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="repeat-password">Repeat Password</Label>
+                  <Label htmlFor="repeat-password">Parolayı Tekrarla</Label>
                 </div>
                 <Input
                   id="repeat-password"
@@ -116,13 +116,13 @@ export function SignUpForm({
               </div>
               {error && <p className="text-sm text-red-500">{error}</p>}
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? 'Creating account...' : 'Sign Up'}
+                {isLoading ? 'Hesap oluşturuluyor...' : 'Kayıt Ol'}
               </Button>
             </div>
             <div className="mt-6 text-center text-sm">
-              Already have an account?{' '}
+              Zaten bir hesabınız var mı?{' '}
               <Link href="/auth/login" className="underline underline-offset-4">
-                Sign In
+                Giriş Yap
               </Link>
             </div>
           </form>
@@ -130,7 +130,7 @@ export function SignUpForm({
       </Card>
       <div className="text-center text-xs text-muted-foreground">
         <Link href="/" className="hover:underline">
-          &larr; Back to Home
+          &larr; Ana sayfaya dön
         </Link>
       </div>
     </div>

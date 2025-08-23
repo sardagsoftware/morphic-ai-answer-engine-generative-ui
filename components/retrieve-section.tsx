@@ -33,7 +33,7 @@ export function RetrieveSection({
       type="button"
       onClick={() => open({ type: 'tool-invocation', toolInvocation: tool })}
       className="flex items-center justify-between w-full text-left rounded-md p-1 -ml-1"
-      title="Open details"
+  title="Detayları aç"
     >
       <ToolArgsSection tool="retrieve" number={data?.results?.length}>
         {url}

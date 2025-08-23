@@ -22,7 +22,7 @@ export function VideoSearchResults({ results }: VideoSearchResultsProps) {
   const query = results.searchParameters?.q || ''
 
   if (!videos || videos.length === 0) {
-    return <div className="text-muted-foreground">No videos found</div>
+    return <div className="text-muted-foreground">Video bulunamadı</div>
   }
 
   return <VideoResultGrid videos={videos} query={query} displayMode="chat" />

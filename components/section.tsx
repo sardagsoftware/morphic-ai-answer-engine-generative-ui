@@ -41,7 +41,7 @@ export const Section: React.FC<SectionProps> = ({
   let icon: React.ReactNode
   let type: 'text' | 'badge' = 'text'
   switch (title) {
-    case 'Images':
+  case 'Images':
       // eslint-disable-next-line jsx-a11y/alt-text
       icon = <Image size={iconSize} className={iconClassName} />
       break
@@ -56,7 +56,7 @@ export const Section: React.FC<SectionProps> = ({
     case 'Answer':
       icon = <BookCheck size={iconSize} className={iconClassName} />
       break
-    case 'Related':
+  case 'Related':
       icon = <Repeat2 size={iconSize} className={iconClassName} />
       break
     case 'Follow-up':
@@ -114,7 +114,7 @@ export function ToolArgsSection({
       <ToolBadge tool={tool}>{children}</ToolBadge>
       {number && number > 0 && (
         <StatusIndicator icon={Check} iconClassName="text-green-500">
-          {number} results
+          {number} sonuç
         </StatusIndicator>
       )}
     </Section>

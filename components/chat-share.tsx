@@ -38,12 +38,12 @@ export function ChatShare({ chatId, className }: ChatShareProps) {
     })
     const result = await shareChat(chatId)
     if (!result) {
-      toast.error('Failed to share chat')
+      toast.error('Paylaşım yapılamadı')
       return
     }
 
     if (!result.sharePath) {
-      toast.error('Could not copy link to clipboard')
+      toast.error('Panoya kopyalanacak bağlantı bulunamadı')
       return
     }
 
@@ -54,10 +54,10 @@ export function ChatShare({ chatId, className }: ChatShareProps) {
   const handleCopy = () => {
     if (shareUrl) {
       copyToClipboard(shareUrl)
-      toast.success('Link copied to clipboard')
+  toast.success('Bağlantı panoya kopyalandı')
       setOpen(false)
     } else {
-      toast.error('No link to copy')
+  toast.error('Kopyalanacak bağlantı yok')
     }
   }
 
@@ -81,20 +81,20 @@ export function ChatShare({ chatId, className }: ChatShareProps) {
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Share link to search result</DialogTitle>
+            <DialogTitle>Arama sonucunun bağlantısını paylaş</DialogTitle>
             <DialogDescription>
-              Anyone with the link will be able to view this search result.
+              Bağlantıya sahip herkes bu arama sonucunu görüntüleyebilir.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="items-center">
             {!shareUrl && (
               <Button onClick={handleShare} disabled={pending} size="sm">
-                {pending ? <Spinner /> : 'Get link'}
+                {pending ? <Spinner /> : 'Bağlantı al'}
               </Button>
             )}
             {shareUrl && (
               <Button onClick={handleCopy} disabled={pending} size="sm">
-                {'Copy link'}
+                {'Bağlantıyı kopyala'}
               </Button>
             )}
           </DialogFooter>

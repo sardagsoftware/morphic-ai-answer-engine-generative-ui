@@ -86,7 +86,7 @@ export function ModelSelector({ models }: ModelSelectorProps) {
           aria-expanded={open}
           className="text-sm rounded-full shadow-none focus:ring-0"
         >
-          {selectedModel ? (
+            {selectedModel ? (
             <div className="flex items-center space-x-1">
               <Image
                 src={`/providers/logos/${selectedModel.providerId}.svg`}
