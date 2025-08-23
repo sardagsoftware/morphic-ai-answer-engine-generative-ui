@@ -1,15 +1,17 @@
 "use client"
 
 // External
-import { User } from '@supabase/supabase-js'
 import React from 'react'
+// Local (sibling)
+import Link from 'next/link'
+
+import { User } from '@supabase/supabase-js'
+
+import { cn } from '@/lib/utils'
 
 // Internal (absolute)
 import { useSidebar } from '@/components/ui/sidebar'
-import { cn } from '@/lib/utils'
 
-// Local (sibling)
-import Link from 'next/link'
 import GuestMenu from './guest-menu'
 import UserMenu from './user-menu'
 
