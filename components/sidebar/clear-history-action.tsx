@@ -48,7 +48,7 @@ export function ClearHistoryAction({ empty }: ClearHistoryActionProps) {
       <DropdownMenuTrigger asChild>
         <SidebarGroupAction disabled={empty} className="static size-7 p-1">
           <MoreHorizontal size={16} />
-          <span className="sr-only">History Actions</span>
+          <span className="sr-only">Geçmiş İşlemleri</span>
         </SidebarGroupAction>
       </DropdownMenuTrigger>
 
@@ -60,22 +60,21 @@ export function ClearHistoryAction({ empty }: ClearHistoryActionProps) {
               className="gap-2 text-destructive focus:text-destructive"
               onSelect={event => event.preventDefault()} // Prevent closing dropdown
             >
-              <Trash2 size={14} /> Clear History
+              <Trash2 size={14} /> Geçmişi Temizle
             </DropdownMenuItem>
           </AlertDialogTrigger>
 
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogTitle>Emin misiniz?</AlertDialogTitle>
               <AlertDialogDescription>
-                This action cannot be undone. It will permanently delete your
-                history.
+                Bu işlem geri alınamaz. Geçmişiniz kalıcı olarak silinecektir.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel disabled={isPending}>Cancel</AlertDialogCancel>
+              <AlertDialogCancel disabled={isPending}>İptal</AlertDialogCancel>
               <AlertDialogAction disabled={isPending} onClick={onClear}>
-                {isPending ? <Spinner /> : 'Clear'}
+                {isPending ? <Spinner /> : 'Temizle'}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

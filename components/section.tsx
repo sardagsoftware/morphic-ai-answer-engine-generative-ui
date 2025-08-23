@@ -40,34 +40,33 @@ export const Section: React.FC<SectionProps> = ({
   const iconClassName = 'mr-1.5 text-muted-foreground'
   let icon: React.ReactNode
   let type: 'text' | 'badge' = 'text'
-  switch (title) {
-  case 'Images':
-      // eslint-disable-next-line jsx-a11y/alt-text
-      icon = <Image size={iconSize} className={iconClassName} />
-      break
-    case 'Videos':
-      icon = <Film size={iconSize} className={iconClassName} />
-      type = 'badge'
-      break
-    case 'Sources':
-      icon = <Newspaper size={iconSize} className={iconClassName} />
-      type = 'badge'
-      break
-    case 'Answer':
-      icon = <BookCheck size={iconSize} className={iconClassName} />
-      break
-  case 'Related':
-      icon = <Repeat2 size={iconSize} className={iconClassName} />
-      break
-    case 'Follow-up':
-      icon = <MessageCircleMore size={iconSize} className={iconClassName} />
-      break
-    case 'Content':
-      icon = <File size={iconSize} className={iconClassName} />
-      type = 'badge'
-      break
-    default:
-      icon = <Search size={iconSize} className={iconClassName} />
+  // Support both English and Turkish title keys; map to display label and icon/type
+  const titleKey = title || ''
+  const mapping: Record<string, { label: string; icon: React.ReactNode; type?: 'text' | 'badge' }> = {
+    Images: { label: 'Görüntüler', icon: <Image size={iconSize} className={iconClassName} /> },
+    Görüntüler: { label: 'Görüntüler', icon: <Image size={iconSize} className={iconClassName} /> },
+    Videos: { label: 'Videolar', icon: <Film size={iconSize} className={iconClassName} />, type: 'badge' },
+    Videolar: { label: 'Videolar', icon: <Film size={iconSize} className={iconClassName} />, type: 'badge' },
+    Sources: { label: 'Kaynaklar', icon: <Newspaper size={iconSize} className={iconClassName} />, type: 'badge' },
+    Kaynaklar: { label: 'Kaynaklar', icon: <Newspaper size={iconSize} className={iconClassName} />, type: 'badge' },
+    Answer: { label: 'Cevap', icon: <BookCheck size={iconSize} className={iconClassName} /> },
+    Cevap: { label: 'Cevap', icon: <BookCheck size={iconSize} className={iconClassName} /> },
+    Related: { label: 'İlgili', icon: <Repeat2 size={iconSize} className={iconClassName} /> },
+    İlgili: { label: 'İlgili', icon: <Repeat2 size={iconSize} className={iconClassName} /> },
+    'Follow-up': { label: 'Takip', icon: <MessageCircleMore size={iconSize} className={iconClassName} /> },
+    Takip: { label: 'Takip', icon: <MessageCircleMore size={iconSize} className={iconClassName} /> },
+    Content: { label: 'İçerik', icon: <File size={iconSize} className={iconClassName} />, type: 'badge' },
+    İçerik: { label: 'İçerik', icon: <File size={iconSize} className={iconClassName} />, type: 'badge' }
+  }
+
+  const resolved = mapping[titleKey]
+  if (resolved) {
+    icon = resolved.icon
+    type = resolved.type || 'text'
+    // overwrite title with localized label
+    title = resolved.label
+  } else {
+    icon = <Search size={iconSize} className={iconClassName} />
   }
 
   return (
