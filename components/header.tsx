@@ -1,16 +1,16 @@
 'use client'
 
-// React / external
-import React from 'react'
+// External
 import { User } from '@supabase/supabase-js'
+import React from 'react'
 
-// Internal aliases
-import { cn } from '@/lib/utils'
+// Internal (absolute)
 import { useSidebar } from '@/components/ui/sidebar'
+import { cn } from '@/lib/utils'
 
-// Local (sibling) components
+// Local (sibling)
 import AnimatedLogo from './animated-logo'
-import GuestMenu from './guest-menu' // Import the new GuestMenu component
+import GuestMenu from './guest-menu'
 import UserMenu from './user-menu'
 
 interface HeaderProps {
