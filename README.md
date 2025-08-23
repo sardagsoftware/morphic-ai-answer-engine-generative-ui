@@ -184,6 +184,19 @@ services:
 
 The default model configuration is located at `public/config/models.json`. For Docker deployment, you can create `models.json` alongside `.env.local` to override the default configuration.
 
+## Automatic CI/CD (GitHub Actions)
+
+This repository includes a GitHub Actions workflow at `.github/workflows/deploy.yml` which will run on pushes to `main`.
+
+- It installs dependencies with `npm install --legacy-peer-deps`, runs `npm run typecheck`, and runs `npm run build`.
+- If you add a `VERCEL_TOKEN` secret to the repository, the workflow will run the Vercel CLI to deploy to production automatically.
+
+To enable auto-deploys:
+
+1. Go to the repository Settings → Secrets and create `VERCEL_TOKEN` with a Vercel personal token.
+2. Push to `main`. The workflow will run and deploy if the token is present.
+
+
 ## 🔎 Search Engine
 
 ### Setting up the Search Engine in Your Browser
