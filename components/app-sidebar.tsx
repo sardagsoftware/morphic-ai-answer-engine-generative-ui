@@ -12,6 +12,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarFooter,
   SidebarRail,
   SidebarTrigger
 } from '@/components/ui/sidebar'
@@ -46,6 +47,9 @@ export default function AppSidebar() {
             <ChatHistorySection />
           </Suspense>
         </div>
+        <SidebarFooter>
+          <div className="text-xs text-muted-foreground">SARDAG @ 2013 - 2025 &nbsp; AiLydian - Ukalai - Aitbondie. All rights reserved.</div>
+        </SidebarFooter>
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
