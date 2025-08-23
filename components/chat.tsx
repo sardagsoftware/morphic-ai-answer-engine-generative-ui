@@ -59,7 +59,9 @@ export function Chat({
       window.dispatchEvent(new CustomEvent('chat-history-updated'))
     },
     onError: error => {
-      toast.error(`Error in chat: ${error.message}`)
+  console.error('Chat error:', error)
+  const message = error?.message || String(error)
+  toast.error(`Sohbet hatası: ${message}`)
     },
     sendExtraMessageFields: false, // Disable extra message fields,
     experimental_throttle: 100

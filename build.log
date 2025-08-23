@@ -1,0 +1,98 @@
+
+> morphic@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.0
+
+   Creating an optimized production build ...
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (108kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ⚠ Compiled with warnings in 2.8s
+
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+A Node.js API is used (process.versions at line: 34) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+./node_modules/@supabase/realtime-js/dist/module/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./lib/supabase/middleware.ts
+
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+A Node.js API is used (process.versions at line: 35) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+./node_modules/@supabase/realtime-js/dist/module/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./lib/supabase/middleware.ts
+
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+A Node.js API is used (process.versions at line: 36) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js
+./node_modules/@supabase/realtime-js/dist/module/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./lib/supabase/middleware.ts
+
+./node_modules/@supabase/supabase-js/dist/module/index.js
+A Node.js API is used (process.version at line: 24) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./lib/supabase/middleware.ts
+
+ ✓ Compiled successfully in 44s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/18) ...
+   Generating static pages (4/18) 
+   Generating static pages (8/18) 
+   Generating static pages (13/18) 
+Successfully loaded models from public/config/models.json
+ ✓ Generating static pages (18/18)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      146 B         728 kB
+├ ○ /_not-found                            997 B         103 kB
+├ ƒ /api/advanced-search                   143 B         102 kB
+├ ƒ /api/chat                              143 B         102 kB
+├ ƒ /api/chat/[id]                         143 B         102 kB
+├ ƒ /api/chats                             143 B         102 kB
+├ ƒ /auth/confirm                          143 B         102 kB
+├ ƒ /auth/error                            143 B         102 kB
+├ ○ /auth/forgot-password                2.32 kB         158 kB
+├ ○ /auth/login                          2.81 kB         158 kB
+├ ƒ /auth/oauth                            143 B         102 kB
+├ ○ /auth/sign-up                        2.69 kB         158 kB
+├ ○ /auth/sign-up-success                  143 B         102 kB
+├ ○ /auth/update-password                2.18 kB         154 kB
+├ ○ /opengraph-image.png                     0 B            0 B
+├ ƒ /search                                146 B         728 kB
+├ ƒ /search/[id]                           146 B         728 kB
+└ ƒ /share/[id]                            146 B         728 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/255-0009d5863092a8cd.js       45.4 kB
+  ├ chunks/4bd1b696-409494caf8c83275.js  54.2 kB
+  └ other shared chunks (total)          1.95 kB
+
+
+ƒ Middleware                               69 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

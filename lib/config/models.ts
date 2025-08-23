@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 import { Model } from '@/lib/types/models'
 import { getBaseUrl } from '@/lib/utils/url'
 
@@ -18,12 +21,27 @@ export function validateModel(model: any): model is Model {
 
 export async function getModels(): Promise<Model[]> {
   try {
-    // Get the base URL using the centralized utility function
-    const baseUrlObj = await getBaseUrl()
+    // First attempt: read the models.json file directly from the public directory.
+    try {
+      const modelsPath = path.join(process.cwd(), 'public', 'config', 'models.json')
+      if (fs.existsSync(modelsPath)) {
+        const raw = fs.readFileSync(modelsPath, 'utf-8')
+        const config = JSON.parse(raw)
+        if (Array.isArray(config.models) && config.models.every(validateModel)) {
+          console.log('Successfully loaded models from public/config/models.json')
+          return config.models
+        }
+      } else {
+        console.warn('models.json not found at', modelsPath)
+      }
+    } catch (fsError: any) {
+      console.warn('Failed to read models from filesystem:', fsError?.message || fsError)
+    }
 
-    // Construct the models.json URL
+    // If filesystem read fails, fall back to fetching via base URL (server environment)
+    const baseUrlObj = await getBaseUrl()
     const modelUrl = new URL('/config/models.json', baseUrlObj)
-    console.log('Attempting to fetch models from:', modelUrl.toString())
+    console.log('Attempting to fetch models from URL:', modelUrl.toString())
 
     try {
       const response = await fetch(modelUrl, {

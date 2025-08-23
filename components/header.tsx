@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils'
 
 // Local (sibling)
 import AnimatedLogo from './animated-logo'
+import Link from 'next/link'
 import GuestMenu from './guest-menu'
 import UserMenu from './user-menu'
 
@@ -29,33 +30,35 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
         'w-full'
       )}
     >
-      <div className="flex items-center gap-3">
-        <AnimatedLogo className="h-8 w-auto" />
+  <div className="flex items-center gap-3 text-black dark:text-white">
+        <Link href="/" className="inline-flex items-center">
+          <AnimatedLogo className="h-8 w-auto text-current" />
+        </Link>
       </div>
 
       <nav className="flex items-center gap-4">
         {/* Desktop / tablet: show full labels; mobile: show icons only */}
-        <a href="/login" className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
+        <Link href="/login" className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
           Giriş Yap
-        </a>
+        </Link>
 
         {/* Theme toggle placeholder - keep existing theme component if present */}
         <div className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
           Tema
         </div>
 
-        <a href="/links" className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
+        <Link href="/links" className="hidden sm:inline-flex items-center px-3 py-1 rounded hover:bg-muted/60">
           Bağlantılar
-        </a>
+        </Link>
 
         {/* Mobile: small icon buttons */}
         <div className="flex sm:hidden items-center gap-2">
-          <a href="/login" aria-label="Giriş" className="p-2 rounded hover:bg-muted/60">
+          <Link href="/login" aria-label="Giriş" className="p-2 rounded hover:bg-muted/60">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
               <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M10 17l5-5-5-5v10z" />
             </svg>
-          </a>
+          </Link>
           <button aria-label="Tema" className="p-2 rounded hover:bg-muted/60">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M12 3v1M12 20v1M4.22 4.22l.7.7M18.36 18.36l.7.7M1 12h1M22 12h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7" />
