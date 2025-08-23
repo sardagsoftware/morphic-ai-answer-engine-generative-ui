@@ -48,7 +48,7 @@ export default function AppSidebar() {
           </Suspense>
         </div>
         <SidebarFooter>
-          <div className="text-xs text-muted-foreground">SARDAG @ 2013 - 2025 &nbsp; AiLydian - Ukalai - Aitbondie. All rights reserved.</div>
+          <div className="text-xs text-muted-foreground">SARDAG @ 2013 - 2025 AiLydian - Ukalai - Aitbondie. Tüm hakları saklıdır.</div>
         </SidebarFooter>
       </SidebarContent>
       <SidebarRail />
