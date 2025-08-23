@@ -35,16 +35,16 @@ export default function GuestMenu() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuItem asChild>
-          <Link href="/auth/login">
+            <Link href="/auth/login">
             <LogIn className="mr-2 h-4 w-4" />
-            <span>Sign In</span>
+            <span>Giriş Yap</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Palette className="mr-2 h-4 w-4" />
-            <span>Theme</span>
+            <span>Tema</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <ThemeMenuItems />
@@ -53,7 +53,7 @@ export default function GuestMenu() {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Link2 className="mr-2 h-4 w-4" />
-            <span>Links</span>
+            <span>Bağlantılar</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <ExternalLinkItems />

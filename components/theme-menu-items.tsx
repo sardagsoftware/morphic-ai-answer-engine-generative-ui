@@ -13,15 +13,15 @@ export function ThemeMenuItems() {
     <>
       <DropdownMenuItem onClick={() => setTheme('light')}>
         <Sun className="mr-2 h-4 w-4" />
-        <span>Light</span>
+        <span>Açık</span>
       </DropdownMenuItem>
       <DropdownMenuItem onClick={() => setTheme('dark')}>
         <Moon className="mr-2 h-4 w-4" />
-        <span>Dark</span>
+        <span>Koyu</span>
       </DropdownMenuItem>
       <DropdownMenuItem onClick={() => setTheme('system')}>
         <Laptop className="mr-2 h-4 w-4" />
-        <span>System</span>
+        <span>Sistem</span>
       </DropdownMenuItem>
     </>
   )
