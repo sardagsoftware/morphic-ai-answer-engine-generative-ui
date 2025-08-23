@@ -194,7 +194,6 @@ export const SearchResultsImageSection: React.FC<
                         <span className="sr-only">Sonraki</span>
                       </CarouselNext>
                     </div>
-                    </div>
                   )}
                 </Carousel>
                 <div className="py-2 text-center text-sm text-muted-foreground">

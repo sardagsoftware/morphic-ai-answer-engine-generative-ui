@@ -45,7 +45,7 @@ export function ChatHistoryClient() {
       setNextOffset(newNextOffset)
     } catch (error) {
       console.error('Failed to load initial chats:', error)
-      toast.error('Failed to load chat history.')
+      toast.error('Arama geçmişi yüklenemedi.')
       setNextOffset(null)
     } finally {
       setIsLoading(false)
@@ -119,7 +119,7 @@ export function ChatHistoryClient() {
     <div className="flex flex-col flex-1 h-full">
       <SidebarGroup>
         <div className="flex items-center justify-between w-full">
-          <SidebarGroupLabel className="p-0">History</SidebarGroupLabel>
+          <SidebarGroupLabel className="p-0">Geçmiş</SidebarGroupLabel>
           <ClearHistoryAction empty={isHistoryEmpty} />
         </div>
       </SidebarGroup>

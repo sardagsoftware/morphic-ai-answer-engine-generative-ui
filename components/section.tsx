@@ -7,7 +7,7 @@ import {
   Check,
   File,
   Film,
-  Image,
+  Image as IconImage,
   MessageCircleMore,
   Newspaper,
   Repeat2,
@@ -43,8 +43,8 @@ export const Section: React.FC<SectionProps> = ({
   // Support both English and Turkish title keys; map to display label and icon/type
   const titleKey = title || ''
   const mapping: Record<string, { label: string; icon: React.ReactNode; type?: 'text' | 'badge' }> = {
-    Images: { label: 'Görüntüler', icon: <Image size={iconSize} className={iconClassName} /> },
-    Görüntüler: { label: 'Görüntüler', icon: <Image size={iconSize} className={iconClassName} /> },
+  Images: { label: 'Görüntüler', icon: <IconImage size={iconSize} className={iconClassName} /> },
+  Görüntüler: { label: 'Görüntüler', icon: <IconImage size={iconSize} className={iconClassName} /> },
     Videos: { label: 'Videolar', icon: <Film size={iconSize} className={iconClassName} />, type: 'badge' },
     Videolar: { label: 'Videolar', icon: <Film size={iconSize} className={iconClassName} />, type: 'badge' },
     Sources: { label: 'Kaynaklar', icon: <Newspaper size={iconSize} className={iconClassName} />, type: 'badge' },

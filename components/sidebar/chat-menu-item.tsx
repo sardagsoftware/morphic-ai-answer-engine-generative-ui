@@ -94,7 +94,7 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
           throw new Error(errorData.error || 'Failed to delete chat')
         }
 
-        toast.success('Chat deleted')
+        toast.success('Sohbet silindi')
         setIsMenuOpen(false) // Close menu on success
         setDialogOpen(false) // Close dialog on success
 
@@ -105,7 +105,7 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
         window.dispatchEvent(new CustomEvent('chat-history-updated'))
       } catch (error) {
         console.error('Failed to delete chat:', error)
-        toast.error((error as Error).message || 'Failed to delete chat')
+        toast.error((error as Error).message || 'Sohbet silinemedi')
         setIsMenuOpen(false) // Close menu on error
         setDialogOpen(false) // Close dialog on error
       }
@@ -139,7 +139,7 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
             ) : (
               <MoreHorizontal size={16} />
             )}
-            <span className="sr-only">Chat Actions</span>
+            <span className="sr-only">Sohbet İşlemleri</span>
           </SidebarMenuAction>
         </DropdownMenuTrigger>
         <DropdownMenuContent side="right" align="start">
@@ -154,20 +154,19 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
                 }}
               >
                 <Trash2 size={14} />
-                Delete Chat
+                Sohbeti Sil
               </DropdownMenuItem>
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                <AlertDialogTitle>Emin misiniz?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  this chat history.
+                  Bu işlem geri alınamaz. Bu sohbet geçmişi kalıcı olarak silinecektir.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel disabled={isPending}>
-                  Cancel
+                  İptal
                 </AlertDialogCancel>
                 <AlertDialogAction
                   disabled={isPending}
@@ -178,8 +177,8 @@ export function ChatMenuItem({ chat }: ChatMenuItemProps) {
                     <div className="flex items-center justify-center">
                       <Spinner />
                     </div>
-                  ) : (
-                    'Delete'
+                    ) : (
+                    'Sil'
                   )}
                 </AlertDialogAction>
               </AlertDialogFooter>
