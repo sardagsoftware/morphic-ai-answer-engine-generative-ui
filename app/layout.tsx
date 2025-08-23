@@ -21,9 +21,8 @@ const fontSans = FontSans({
   variable: '--font-sans'
 })
 
-const title = 'Morphic'
-const description =
-  'A fully open-source AI-powered answer engine with a generative UI.'
+const title = 'AitBondie - IQ Sahibi Lideriniz.Olarak'
+const description = 'Açık kaynaklı, yapay zekâ destekli cevap motoru ve üretken kullanıcı arayüzü.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://morphic.sh'),
