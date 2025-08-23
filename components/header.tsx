@@ -1,4 +1,6 @@
-'use client'
+"use client"
+
+/* eslint-disable simple-import-sort/imports */
 
 // External
 import { User } from '@supabase/supabase-js'
