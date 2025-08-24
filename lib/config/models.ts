@@ -21,76 +21,34 @@ export function validateModel(model: any): model is Model {
 
 export async function getModels(): Promise<Model[]> {
   try {
-    // First attempt: read the models.json file directly from the public directory.
-    try {
-      const modelsPath = path.join(process.cwd(), 'public', 'config', 'models.json')
-      if (fs.existsSync(modelsPath)) {
-        const raw = fs.readFileSync(modelsPath, 'utf-8')
-        const config = JSON.parse(raw)
-        if (Array.isArray(config.models) && config.models.every(validateModel)) {
-          console.log('Successfully loaded models from public/config/models.json')
-          return config.models
-        }
-      } else {
-        console.warn('models.json not found at', modelsPath)
-      }
-    } catch (fsError: any) {
-      console.warn('Failed to read models from filesystem:', fsError?.message || fsError)
-    }
-
-    // If filesystem read fails, fall back to fetching via base URL (server environment)
-    const baseUrlObj = await getBaseUrl()
-    const modelUrl = new URL('/config/models.json', baseUrlObj)
-    console.log('Attempting to fetch models from URL:', modelUrl.toString())
-
-    try {
-      const response = await fetch(modelUrl, {
-        cache: 'no-store',
-        headers: {
-          Accept: 'application/json'
-        }
-      })
-
-      if (!response.ok) {
-        console.warn(
-          `HTTP error when fetching models: ${response.status} ${response.statusText}`
-        )
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-
-      const text = await response.text()
-
-      // Check if the response starts with HTML doctype
-      if (text.trim().toLowerCase().startsWith('<!doctype')) {
-        console.warn('Received HTML instead of JSON when fetching models')
-        throw new Error('Received HTML instead of JSON')
-      }
-
-      const config = JSON.parse(text)
+    // Otomatik model fallback ve hata yönetimi
+    const modelsPath = path.join(process.cwd(), 'public', 'config', 'models.json')
+    let models: Model[] = []
+    if (fs.existsSync(modelsPath)) {
+      const raw = fs.readFileSync(modelsPath, 'utf-8')
+      const config = JSON.parse(raw)
       if (Array.isArray(config.models) && config.models.every(validateModel)) {
-        console.log('Successfully loaded models from URL')
-        return config.models
-      }
-    } catch (error: any) {
-      // Fallback to default models if fetch fails
-      console.warn(
-        'Fetch failed, falling back to default models:',
-        error.message || 'Unknown error'
-      )
-
-      if (
-        Array.isArray(defaultModels.models) &&
-        defaultModels.models.every(validateModel)
-      ) {
-        console.log('Successfully loaded default models')
-        return defaultModels.models
+        models = config.models.filter((m: Model) => m.enabled)
       }
     }
+    if (models.length === 0) {
+      // Fallback to default
+      models = defaultModels.models
+        .map(m => ({
+          ...m,
+          toolCallType: m.toolCallType === 'native' || m.toolCallType === 'manual' ? m.toolCallType : 'native'
+        } as Model))
+        .filter(m => m.enabled)
+    }
+    // Otomatik fallback: ilk model hata verirse diğerine geç
+    return models.length > 0 ? models : []
   } catch (error) {
     console.warn('Failed to load models:', error)
+    return defaultModels.models
+      .map(m => ({
+        ...m,
+        toolCallType: m.toolCallType === 'native' || m.toolCallType === 'manual' ? m.toolCallType : 'native'
+      } as Model))
+      .filter(m => m.enabled)
   }
-
-  // Last resort: return empty array
-  console.warn('All attempts to load models failed, returning empty array')
-  return []
 }

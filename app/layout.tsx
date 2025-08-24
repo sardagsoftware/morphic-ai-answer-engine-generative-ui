@@ -22,10 +22,9 @@ const fontSans = FontSans({
 })
 
 const title = 'AitBondie - IQ Sahibi Lideriniz.Olarak'
-const description = 'Açık kaynaklı, yapay zekâ destekli cevap motoru ve üretken kullanıcı arayüzü.'
+const description = ''
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://morphic.sh'),
   title,
   description,
   icons: {
@@ -34,14 +33,50 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title,
-    description
+    description,
+    url: 'https://www.aitbondie.ai',
+    siteName: 'AitBondie',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 627,
+        alt: 'AitBondie'
+      }
+    ],
+    locale: 'tr_TR',
+    type: 'website'
   },
   twitter: {
     title,
     description,
     card: 'summary_large_image',
-    creator: '@miiura'
-  }
+    creator: '',
+    site: '@aitbondie',
+    images: ['/opengraph-image.png']
+  },
+  alternates: {
+    canonical: 'https://www.aitbondie.ai',
+    languages: {
+      tr: 'https://www.aitbondie.ai',
+      en: 'https://www.aitbondie.ai/en'
+    }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+  'max-video-preview': -1,
+  'max-image-preview': 'large',
+      maxSnippet: -1
+    }
+  },
+  keywords: ['AitBondie', 'Yapay Zeka', 'AI', 'Cevap Motoru', 'Lider', 'Chatbot', 'Türkiye', 'OpenAI', 'Anthropic', 'Google Gemini', 'xAI', 'Fireworks', 'Groq', 'Ollama', 'IQ', 'Soru Cevap', 'Arama Motoru'],
+  category: 'technology',
 }
 
 export const viewport: Viewport = {
