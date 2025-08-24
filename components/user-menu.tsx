@@ -21,7 +21,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import { Button } from './ui/button'
-import { ExternalLinkItems } from './external-link-items'
+// ...existing code...
 import { ThemeMenuItems } from './theme-menu-items'
 
 interface UserMenuProps {
@@ -93,7 +93,7 @@ export default function UserMenu({ user }: UserMenuProps) {
             <span>Bağlantılar</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            <ExternalLinkItems />
+            {/* Sosyal ağ bağlantıları kaldırıldı */}
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />

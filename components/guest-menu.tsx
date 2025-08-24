@@ -21,7 +21,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 
-import { ExternalLinkItems } from './external-link-items'
+// ...existing code...
 import { ThemeMenuItems } from './theme-menu-items'
 
 export default function GuestMenu() {
@@ -56,7 +56,7 @@ export default function GuestMenu() {
             <span>Bağlantılar</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            <ExternalLinkItems />
+            {/* Sosyal ağ bağlantıları kaldırıldı */}
           </DropdownMenuSubContent>
         </DropdownMenuSub>
       </DropdownMenuContent>

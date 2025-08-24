@@ -15,6 +15,7 @@ export default function MatrixCode({ color = '#00FF41', bg = 'transparent', heig
     const columns = Math.floor(w / fontSize);
     const drops = Array(columns).fill(1);
     function draw() {
+      if (!ctx) return;
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
       ctx.fillStyle = color;

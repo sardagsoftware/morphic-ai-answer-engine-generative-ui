@@ -35,12 +35,27 @@ export default function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
+              <Link href="/ai-code-explain" className="flex items-center gap-2">
+                <span>Kod Açıklama Modülü</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
               <Link href="/" className="flex items-center gap-2">
                 <Plus className="size-4" />
                 <span>Yeni</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <Link href="/ai-assistant" className="flex items-center gap-2">
+                  {/* Farklı bir ikon eklemek isterseniz buraya ekleyebilirsiniz */}
+                  <span>Yapay Zeka Asistanı</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
         </SidebarMenu>
         <div className="flex-1 overflow-y-auto">
           <Suspense fallback={<ChatHistorySkeleton />}>
@@ -48,11 +63,35 @@ export default function AppSidebar() {
           </Suspense>
         </div>
         <SidebarFooter>
-          <div className="text-xs text-muted-foreground">SARDAG @ 2013 - 2025 AiLydian - Ukalai - Aitbondie. Tüm hakları saklıdır.</div>
-          <div className="text-xs text-muted-foreground mt-2 flex items-center gap-2"> 
-            <span className="text-purple-500">❤</span>
-            <span>İsmini vermek istemeyen destekçimize teşekkürler.</span>
-          </div>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/ai-summarizer" className="flex items-center gap-2">
+                    <span>Metin Özetleyici</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/ai-image-analyzer" className="flex items-center gap-2">
+                    <span>Görselden İçerik Analizi</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/ai-voice-assistant" className="flex items-center gap-2">
+                    <span>Sesli Komut Asistanı</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href="/ai-sentiment" className="flex items-center gap-2">
+                    <span>Duygu Analizi</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+          <div className="text-xs text-muted-foreground">© 2025 AitBondie. Tüm hakları saklıdır.</div>
         </SidebarFooter>
       </SidebarContent>
       <SidebarRail />
