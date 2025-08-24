@@ -1,0 +1,14 @@
+.sidebar-gradient-btn {
+  background: linear-gradient(90deg, #fff 0%, #e0e0e0 100%);
+  color: #222;
+  border-radius: 8px;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  font-weight: 500;
+}
+.sidebar-gradient-btn:hover {
+  background: linear-gradient(90deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #0070f3;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}

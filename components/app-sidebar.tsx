@@ -35,14 +35,14 @@ export default function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <Link href="/ai-code-explain" className="flex items-center gap-2">
+              <Link href="/ai-code-explain" className="flex items-center gap-2 sidebar-gradient-btn">
                 <span>Kod Açıklama Modülü</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <Link href="/" className="flex items-center gap-2">
+              <Link href="/" className="flex items-center gap-2 sidebar-gradient-btn">
                 <Plus className="size-4" />
                 <span>Yeni</span>
               </Link>
@@ -50,7 +50,7 @@ export default function AppSidebar() {
           </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <Link href="/ai-assistant" className="flex items-center gap-2">
+                <Link href="/ai-assistant" className="flex items-center gap-2 sidebar-gradient-btn">
                   {/* Farklı bir ikon eklemek isterseniz buraya ekleyebilirsiniz */}
                   <span>Yapay Zeka Asistanı</span>
                 </Link>
@@ -65,28 +65,28 @@ export default function AppSidebar() {
         <SidebarFooter>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/ai-summarizer" className="flex items-center gap-2">
+                  <Link href="/ai-summarizer" className="flex items-center gap-2 sidebar-gradient-btn">
                     <span>Metin Özetleyici</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/ai-image-analyzer" className="flex items-center gap-2">
+                  <Link href="/ai-image-analyzer" className="flex items-center gap-2 sidebar-gradient-btn">
                     <span>Görselden İçerik Analizi</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/ai-voice-assistant" className="flex items-center gap-2">
+                  <Link href="/ai-voice-assistant" className="flex items-center gap-2 sidebar-gradient-btn">
                     <span>Sesli Komut Asistanı</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/ai-sentiment" className="flex items-center gap-2">
+                  <Link href="/ai-sentiment" className="flex items-center gap-2 sidebar-gradient-btn">
                     <span>Duygu Analizi</span>
                   </Link>
                 </SidebarMenuButton>

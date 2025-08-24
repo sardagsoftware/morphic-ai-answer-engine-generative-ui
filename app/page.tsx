@@ -10,7 +10,12 @@ export default async function Page() {
   const models = await getModels()
   return (
     <>
-      <MatrixCode color="#00FF41" bg="#18181b" height={80} />
+      {/* Döngüsel bilgi ticker */}
+      <div className="w-full max-w-4xl mx-auto mt-2">
+        {/* @ts-expect-error Server Component'ten Client Component'e geçiş */}
+        {typeof window !== 'undefined' && require('@/components/info-ticker').default()}
+      </div>
+      <MatrixCode color="#fff" bg="#222" height={80} />
       <Chat id={id} models={models} />
     </>
   )

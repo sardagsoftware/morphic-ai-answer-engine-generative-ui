@@ -18,22 +18,29 @@ export default function MatrixCode({ color = '#00FF41', bg = 'transparent', heig
     if (!ctx) return;
     const w = canvas.width;
     const h = canvas.height;
-    const fontSize = 20;
+    const fontSize = 16;
     const columns = Math.floor(w / fontSize);
     const drops = Array(columns).fill(1);
     function draw() {
       if (!ctx) return;
-      ctx.fillStyle = bg;
+      // Gradyan arka plan
+      const gradient = ctx.createLinearGradient(0, 0, w, h);
+      gradient.addColorStop(0, '#222');
+      gradient.addColorStop(1, '#444');
+      ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, w, h);
-      ctx.fillStyle = color;
-      ctx.font = fontSize + 'px monospace';
+      // Kod karakterleri ve yoğunluk
       for (let i = 0; i < drops.length; i++) {
-        const text = Math.random() > 0.5 ? '0' : '1';
+        ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.8 + 0.2})`;
+        ctx.font = fontSize + 'px monospace';
+        // Karakter havuzu
+        const chars = '01AI<>[]{}#@%$&';
+        const text = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > h && Math.random() > 0.975) {
+        if (drops[i] * fontSize > h && Math.random() > 0.96) {
           drops[i] = 0;
         }
-        drops[i]++;
+        drops[i] += Math.random() > 0.5 ? 2 : 1; // Daha hızlı ve yoğun akış
       }
     }
     let animation: number;

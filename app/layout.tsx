@@ -15,6 +15,7 @@ import Header from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
 
 import './globals.css'
+import './sidebar-gradient-btn.css'
 
 const fontSans = FontSans({
   subsets: ['latin'],
