@@ -3,6 +3,13 @@ import React, { useEffect, useRef } from 'react';
 
 export default function MatrixCode({ color = '#00FF41', bg = 'transparent', height = 80 }) {
   const canvasRef = useRef(null);
+  const [canvasWidth, setCanvasWidth] = React.useState(1200);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCanvasWidth(window.innerWidth);
+    }
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current as HTMLCanvasElement | null;
@@ -29,19 +36,19 @@ export default function MatrixCode({ color = '#00FF41', bg = 'transparent', heig
         drops[i]++;
       }
     }
-  let animation: number;
+    let animation: number;
     function loop() {
       draw();
       animation = requestAnimationFrame(loop);
     }
     loop();
-  return () => cancelAnimationFrame(animation);
-  }, [color, bg, height]);
+    return () => cancelAnimationFrame(animation);
+  }, [color, bg, height, canvasWidth]);
 
   return (
     <canvas
       ref={canvasRef}
-      width={window.innerWidth}
+      width={canvasWidth}
       height={height}
       style={{ width: '100%', height: height, display: 'block', background: bg }}
     />
