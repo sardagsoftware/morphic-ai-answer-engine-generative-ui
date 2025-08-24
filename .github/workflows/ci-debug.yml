@@ -41,3 +41,5 @@ jobs:
         with:
           name: ci-debug-artifact
           path: debug
+
+maxSnippet: -1

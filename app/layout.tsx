@@ -70,9 +70,9 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-  'max-video-preview': -1,
-  'max-image-preview': 'large',
-      maxSnippet: -1
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
     }
   },
   keywords: ['AitBondie', 'Yapay Zeka', 'AI', 'Cevap Motoru', 'Lider', 'Chatbot', 'Türkiye', 'OpenAI', 'Anthropic', 'Google Gemini', 'xAI', 'Fireworks', 'Groq', 'Ollama', 'IQ', 'Soru Cevap', 'Arama Motoru'],
